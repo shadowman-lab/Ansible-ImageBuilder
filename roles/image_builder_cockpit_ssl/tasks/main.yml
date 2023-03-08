@@ -1,0 +1,22 @@
+---
+- name: Block for SSL Setup
+  when: sslsetup
+  block:
+
+  - name: Copy Cert
+    ansible.builtin.copy:
+      src: "{{ certsourcelocation }}"
+      dest: /etc/cockpit/ws-certs.d/{{ certdeploymentname }}.crt
+      owner: root
+      group: root
+      mode: '0644'
+    notify: Cockpit_restart
+
+  - name: Copy Key
+    ansible.builtin.copy:
+      src: "{{ keysourcelocation }}"
+      dest: /etc/cockpit/ws-certs.d/{{ keydeploymentname }}.key
+      owner: root
+      group: root
+      mode: '0644'
+    notify: Cockpit_restart

@@ -1,5 +1,10 @@
 - name: Run osbuild_builder role to setup Image Builder
   hosts: all
+  vars:
+    sslsetup: true
+    rhsatellite: true
 
   roles:
     - infra.osbuild.setup_server
+    - image_builder_setup_sat
+    - image_builder_cockpit_ssl
