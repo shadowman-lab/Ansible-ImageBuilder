@@ -2,5 +2,5 @@
 sslsetup: true
 certsourcelocation: "/certs/shadowman_cert.cer"
 keysourcelocation: "/certs/shadowman_private.key"
-certdeploymentname: "Development"
-keydeploymentname: "Everything_Red_Hat"
+certdeploymentname: "shadowman_cert"
+keydeploymentname: "shadowman_cert"
