@@ -15,7 +15,7 @@
         password: "{{ builder_password }}"
         groups: ["users", "wheel"]
       services:
-        enabled: ["httpd", "sshd", "firewalld"]
+        enabled: ["httpd", "sshd"]
       firewalld.services:
         enabled: ["ssh", "https"]
 
