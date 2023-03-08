@@ -1,0 +1,23 @@
+- name: Run osbuild_builder to build new image
+  hosts: all
+  vars:
+    builder_compose_type: vmdk
+    builder_blueprint_name: shadowmanrhel8
+    builder_compose_pkgs:
+      - vim-enhanced
+      - httpd
+      - ansible-core
+      - tmux
+    builder_compose_customizations:
+      user:
+        name: "{{ builder_user }}"
+        description: "builder user"
+        password: "{{ builder_password }}"
+        groups: ["users", "wheel"]
+      services:
+        enabled: ["httpd", "sshd", "firewalld"]
+      firewalld.services:
+        enabled: ["ssh", "https"]
+
+  roles:
+    - infra.osbuild.builder

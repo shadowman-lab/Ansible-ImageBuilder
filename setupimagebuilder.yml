@@ -1,0 +1,6 @@
+- name: Run osbuild_builder role to setup obuild compose build server
+  become: true
+  hosts: image.shadowman.dev
+
+  roles:
+    - infra.osbuild.setup_server
