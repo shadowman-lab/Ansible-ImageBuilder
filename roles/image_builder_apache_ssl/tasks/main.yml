@@ -3,7 +3,7 @@
   when: sslsetup
   block:
 
-  - name: Add apache and SSL package for RHEL 8
+  - name: Add SSL package for RHEL 8
     ansible.builtin.dnf:
       name:
         - mod_ssl
@@ -26,7 +26,7 @@
       group: root
       mode: '0644'
 
-  - name: Open Firewalld for SSL
+  - name: Open Firewalld for HTTPS
     ansible.posix.firewalld:
       service: https
       permanent: true
