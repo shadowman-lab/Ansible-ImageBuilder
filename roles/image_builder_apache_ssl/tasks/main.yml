@@ -12,7 +12,7 @@
 
   - name: Copy Cert
     ansible.builtin.copy:
-      src: /certs/shadowman_cert.cer
+      src: "{{ certsourcelocation }}"
       dest: /etc/pki/tls/certs/localhost.crt
       owner: root
       group: root
@@ -20,7 +20,7 @@
 
   - name: Copy Key
     ansible.builtin.copy:
-      src: /certs/shadowman_private.key
+      src: "{{ keysourcelocation }}"
       dest: /etc/pki/tls/private/localhost.key
       owner: root
       group: root
