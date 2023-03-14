@@ -2,7 +2,7 @@
 - name: Block for Apache SSL Setup
   when: sslsetup
   block:
-  
+
   - name: Add apache and SSL package for RHEL 8
     ansible.builtin.dnf:
       name:
