@@ -8,3 +8,4 @@
     - infra.osbuild.setup_server
     - image_builder_setup_sat
     - image_builder_cockpit_ssl
+    - image_builder_apache_ssl

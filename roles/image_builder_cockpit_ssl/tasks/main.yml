@@ -1,5 +1,5 @@
 ---
-- name: Block for SSL Setup
+- name: Block for Cockpit SSL Setup
   when: sslsetup
   block:
 

@@ -1,0 +1,35 @@
+---
+- name: Block for Apache SSL Setup
+  when: sslsetup
+  block:
+  
+  - name: Add apache and SSL package for RHEL 8
+    ansible.builtin.dnf:
+      name:
+        - httpd
+        - mod_ssl
+      state: present
+    notify: HTTPD_running
+
+  - name: Copy Cert
+    ansible.builtin.copy:
+      src: /certs/shadowman_cert.cer
+      dest: /etc/pki/tls/certs/localhost.crt
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Copy Key
+    ansible.builtin.copy:
+      src: /certs/shadowman_private.key
+      dest: /etc/pki/tls/private/localhost.key
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Open Firewalld for SSL
+    ansible.posix.firewalld:
+      service: https
+      permanent: true
+      state: enabled
+    notify: Restart_firewalld
