@@ -13,7 +13,7 @@
 
   - name: Template out file for repo to use satellite for current RHEL version
     ansible.builtin.template:
-      src: templates/rhel-8.json.j2
+      src: templates/rhel.json.j2
       dest: /etc/osbuild-composer/repositories/rhel-{{ facter_os.release.major }}{{ facter_os.release.minor }}.json
       owner: root
       mode: 0644
