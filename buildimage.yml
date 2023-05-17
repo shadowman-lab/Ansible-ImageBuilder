@@ -14,7 +14,7 @@
         name: "{{ builder_user }}"
         description: "builder user"
         password: "{{ builder_password }}"
-        key: "{{ (lookup('file', builder_pub_key_path, errors='warn')) }}"
+        key: "{{ (lookup('file', builder_pub_key_path, errors='warn')) | default (omit) }}"
         groups: ["users", "wheel"]
       services:
         enabled: ["httpd", "sshd"]
