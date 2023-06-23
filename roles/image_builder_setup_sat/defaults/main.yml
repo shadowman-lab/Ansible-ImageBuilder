@@ -1,6 +1,6 @@
 ---
 rhsatellite: true
 sat_host: "sat6.shadowman.dev"
-sat_organization: "Shadow_Man"
-sat_environment: "Development"
-sat_contentview: "Everything_Red_Hat"
+sat_organization: "Shadowman"
+sat_environment: "Library"
+sat_contentview: "RHEL_8"
