@@ -3,32 +3,32 @@
   when: sslsetup
   block:
 
-  - name: Add SSL package for RHEL 8
-    ansible.builtin.dnf:
-      name:
-        - mod_ssl
-      state: present
-    notify: HTTPD_restarted
+    - name: Add SSL package for RHEL 8
+      ansible.builtin.dnf:
+        name:
+          - mod_ssl
+        state: present
+      notify: HTTPD_restarted
 
-  - name: Copy Cert
-    ansible.builtin.copy:
-      src: "{{ certsourcelocation }}"
-      dest: /etc/pki/tls/certs/localhost.crt
-      owner: root
-      group: root
-      mode: '0644'
+    - name: Copy Cert
+      ansible.builtin.copy:
+        src: "{{ certsourcelocation }}"
+        dest: /etc/pki/tls/certs/localhost.crt
+        owner: root
+        group: root
+        mode: '0644'
 
-  - name: Copy Key
-    ansible.builtin.copy:
-      src: "{{ keysourcelocation }}"
-      dest: /etc/pki/tls/private/localhost.key
-      owner: root
-      group: root
-      mode: '0600'
+    - name: Copy Key
+      ansible.builtin.copy:
+        src: "{{ keysourcelocation }}"
+        dest: /etc/pki/tls/private/localhost.key
+        owner: root
+        group: root
+        mode: '0600'
 
-  - name: Open Firewalld for HTTPS
-    ansible.posix.firewalld:
-      service: https
-      permanent: true
-      state: enabled
-    notify: Restart_firewalld
+    - name: Open Firewalld for HTTPS
+      ansible.posix.firewalld:
+        service: https
+        permanent: true
+        state: enabled
+      notify: Restart_firewalld
