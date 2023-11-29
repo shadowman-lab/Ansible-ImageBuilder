@@ -24,7 +24,7 @@
       dest: /etc/pki/tls/private/localhost.key
       owner: root
       group: root
-      mode: '0644'
+      mode: '0600'
 
   - name: Open Firewalld for HTTPS
     ansible.posix.firewalld:
