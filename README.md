@@ -1,2 +1,2 @@
 # Ansible-ImageBuilder
-Repo to setup and utilize Image builder with the infra.osbuild validated content collection
+Repo to setup and utilize Image builder with the infra.osbuild validated content collection to include setting up SSL
