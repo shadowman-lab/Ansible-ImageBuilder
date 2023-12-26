@@ -1,3 +1,4 @@
+---
 - name: Run osbuild_builder to build new image
   hosts: all
   vars:
@@ -12,21 +13,20 @@
     builder_compose_customizations:
       user:
         name: "{{ builder_user }}"
-        description: "builder user"
+        description: builder user
         password: "{{ builder_password }}"
         key: "{{ builder_pub_key }}"
-        groups: ["users", "wheel"]
+        groups: [users, wheel]
       services:
-        enabled: ["httpd", "sshd"]
+        enabled: [httpd, sshd]
       firewalld.services:
-        enabled: ["ssh", "https"]
+        enabled: [ssh, https]
       filesystem:
-        mountpoint: "/var"
+        mountpoint: /var
         size: 2147483648
       openscap:
-        datastream: "/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml"
-        profile_id: "xccdf_org.ssgproject.content_profile_cui"
-
+        datastream: /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+        profile_id: xccdf_org.ssgproject.content_profile_cui
 
   roles:
     - infra.osbuild.builder
