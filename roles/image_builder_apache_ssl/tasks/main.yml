@@ -2,7 +2,6 @@
 - name: Block for Apache SSL Setup
   when: sslsetup
   block:
-
     - name: Add SSL package for RHEL 8
       ansible.builtin.dnf:
         name:
@@ -16,7 +15,7 @@
         dest: /etc/pki/tls/certs/localhost.crt
         owner: root
         group: root
-        mode: '0644'
+        mode: "0644"
 
     - name: Copy Key
       ansible.builtin.copy:
@@ -24,7 +23,7 @@
         dest: /etc/pki/tls/private/localhost.key
         owner: root
         group: root
-        mode: '0600'
+        mode: "0600"
 
     - name: Open Firewalld for HTTPS
       ansible.posix.firewalld:

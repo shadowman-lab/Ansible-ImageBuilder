@@ -1,6 +1,6 @@
 ---
 sslsetup: true
-certsourcelocation: "/certs/shadowman_cert.cer"
-keysourcelocation: "/certs/shadowman_private.key"
-certdeploymentname: "shadowman_cert"
-keydeploymentname: "shadowman_cert"
+certsourcelocation: /certs/shadowman_cert.cer
+keysourcelocation: /certs/shadowman_private.key
+certdeploymentname: shadowman_cert
+keydeploymentname: shadowman_cert

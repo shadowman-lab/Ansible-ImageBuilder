@@ -1,3 +1,4 @@
+---
 - name: Run osbuild_builder role to setup Image Builder
   hosts: all
   vars:
