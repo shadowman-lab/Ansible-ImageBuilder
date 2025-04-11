@@ -6,10 +6,9 @@
     builder_pub_key: "{{ public_key }}"
     builder_blueprint_name: "{{ blueprint_name }}"
     builder_compose_pkgs:
-      - vim-enhanced
-      - httpd
-      - ansible-core
-      - tmux
+      - firewalld
+      - ipa-client
+      - dnf-utils
     builder_compose_customizations:
       user:
         name: "{{ builder_user }}"
